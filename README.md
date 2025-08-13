@@ -33,6 +33,7 @@ along with Copy-PortablePath. If not, see <https://www.gnu.org/licenses/>.
 * **No dependencies** — works out of the box with PowerShell.
 * **Error handling** — detects and reports missing files, registry issues, and permission errors.
 * **Installation check** — verifies if context menu entries are already installed before making changes.
+* **Installer can be run from right-click** — Simply right-click `install.ps1` and select **Run with PowerShell** to install without opening a terminal.
 
 ---
 
@@ -51,6 +52,8 @@ along with Copy-PortablePath. If not, see <https://www.gnu.org/licenses/>.
 ---
 
 ## 🚀 Installation
+
+### Method 1 – Run from PowerShell
 
 1. **Download** this repository and place the files in a permanent location, for example:
 
@@ -75,6 +78,13 @@ along with Copy-PortablePath. If not, see <https://www.gnu.org/licenses/>.
    * Apply registry changes if not installed.
    * Show error details if any issues occur.
 6. **Restart File Explorer** (or log out and back in) to apply the new context menu entries.
+
+### Method 2 – Run from Right-Click
+
+1. Locate `install.ps1` in File Explorer.
+2. **Right-click** the file and select **Run with PowerShell**.
+3. Accept any prompts and wait for confirmation.
+4. **Restart File Explorer** to apply changes.
 
 ---
 
@@ -122,6 +132,8 @@ Run:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 C:/Tools/Copy-PortablePath/uninstall.ps1
 ```
+
+Or right-click `uninstall.ps1` and select **Run with PowerShell**.
 
 The uninstall script includes checks to confirm:
 
