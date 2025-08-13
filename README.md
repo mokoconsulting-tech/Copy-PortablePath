@@ -52,24 +52,29 @@ along with Copy-PortablePath. If not, see <https://www.gnu.org/licenses/>.
 
 ## 🚀 Installation
 
-1. **Download** this repository or copy the required scripts to a local folder, for example:
+1. **Download** this repository and place the files in a permanent location, for example:
 
    ```
-   C:/Copy-PortablePath/
+   C:/Tools/Copy-PortablePath/
    ```
-2. **Run the installer script** in PowerShell **as Administrator**:
+2. **Open PowerShell as Administrator**.
+3. **Allow script execution for the current session**:
 
    ```powershell
    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   C:/Copy-PortablePath/install.ps1
    ```
-3. The script will:
+4. **Run the installer script**:
+
+   ```powershell
+   C:/Tools/Copy-PortablePath/install.ps1
+   ```
+5. The installer will:
 
    * Check if context menu entries are already installed.
    * Display a message and exit if already installed.
-   * Apply the registry changes if not installed.
-   * Report any errors encountered during the process.
-4. **Restart File Explorer** (or log out and back in) to apply the new context menu entries.
+   * Apply registry changes if not installed.
+   * Show error details if any issues occur.
+6. **Restart File Explorer** (or log out and back in) to apply the new context menu entries.
 
 ---
 
@@ -103,8 +108,8 @@ along with Copy-PortablePath. If not, see <https://www.gnu.org/licenses/>.
 * **Default mode bypass** – Run the script directly:
 
   ```powershell
-  C:/Copy-PortablePath/Copy-PortablePath.ps1 -Mode Absolute
-  C:/Copy-PortablePath/Copy-PortablePath.ps1 -Mode Relative
+  C:/Tools/Copy-PortablePath/Copy-PortablePath.ps1 -Mode Absolute
+  C:/Tools/Copy-PortablePath/Copy-PortablePath.ps1 -Mode Relative
   ```
 
 ---
@@ -115,7 +120,7 @@ Run:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-C:/Copy-PortablePath/uninstall.ps1
+C:/Tools/Copy-PortablePath/uninstall.ps1
 ```
 
 The uninstall script includes checks to confirm:
