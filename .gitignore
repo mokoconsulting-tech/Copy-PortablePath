@@ -1,6 +1,7 @@
 @ -0,0 +1,47 @@
 # Logs and databases
 /logs/
+*.log
 /tmp/
 /documents/
 /administrator/logs/
