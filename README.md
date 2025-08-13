@@ -28,8 +28,8 @@ It is designed for developers, IT staff, and anyone who needs quick, consistent 
 
 * **Two copy modes**:
 
-  * **Copy Relative Path** – Path relative to the script’s working directory.
-  * **Copy Absolute Path** – Full absolute path to the file or folder.
+	* **Copy Relative Path** – Path relative to the script’s working directory.
+	* **Copy Absolute Path** – Full absolute path to the file or folder.
 * **Portable path format** (`/` separators) for cross-platform compatibility.
 * **No dependencies** — works out of the box with PowerShell.
 * **Install & uninstall scripts** for quick setup.
@@ -51,20 +51,18 @@ It is designed for developers, IT staff, and anyone who needs quick, consistent 
 ## 🚀 Installation
 
 1. **Download** this repository or copy the required scripts to a local folder.
-   Example:
+	 Example:
 
-   ```
-   J:\\Shared drives\\Knowledgebase\\Scripts\\Copy-PortablePath\\
-   ```
+	 ```
+	 J:/Shared drives/Knowledgebase/Scripts/Copy-PortablePath/
+	 ```
 
 2. **Run the installer script** in PowerShell **as Administrator**:
 
-   ```powershell
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   .\\install.ps1
-   ```
-
-3. **Restart File Explorer** (or log out and back in) to apply the new context menu entries.
+	 ```powershell
+	 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+	 ./install.ps1
+	 ```
 
 ---
 
@@ -73,8 +71,8 @@ It is designed for developers, IT staff, and anyone who needs quick, consistent 
 1. **Right-click** a file or folder in File Explorer.
 2. Select:
 
-   * **Copy Relative Path** – Path relative to the script’s working directory.
-   * **Copy Absolute Path** – Full path with `/` separators.
+	 * **Copy Relative Path** – Path relative to the script’s working directory.
+	 * **Copy Absolute Path** – Full path with `/` separators.
 3. Paste into your application, code editor, or terminal.
 
 ---
@@ -82,36 +80,36 @@ It is designed for developers, IT staff, and anyone who needs quick, consistent 
 ## ⚙ Customization
 
 * **Relative path base**
-  Edit `$BasePath` in `Copy-PortablePath.ps1` to control how relative paths are calculated.
+	Edit `$BasePath` in `Copy-PortablePath.ps1` to control how relative paths are calculated.
 
 * **Separator style**
-  Default: `/` for cross-platform use.
-  Change:
+	Default: `/` for cross-platform use.
+	Change:
 
-  ```powershell
-  $PortablePath = $Path -replace '\\\\','/'
-  ```
+	```powershell
+	$PortablePath = $Path -replace '\\\\','/'
+	```
 
-  to:
+	to:
 
-  ```powershell
-  $PortablePath = $Path
-  ```
+	```powershell
+	$PortablePath = $Path
+	```
 
-  to keep Windows `\\`.
+	to keep Windows `\\`.
 
 * **Default mode bypass**
-  Run the script directly with:
+	Run the script directly with:
 
-  ```powershell
-  .\\Copy-PortablePath.ps1 -Mode Absolute
-  ```
+	```powershell
+	.\\Copy-PortablePath.ps1 -Mode Absolute
+	```
 
-  or:
+	or:
 
-  ```powershell
-  .\\Copy-PortablePath.ps1 -Mode Relative
-  ```
+	```powershell
+	.\\Copy-PortablePath.ps1 -Mode Relative
+	```
 
 ---
 
