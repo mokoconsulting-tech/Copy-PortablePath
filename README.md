@@ -1,170 +1,105 @@
-<!--
-Copyright (C) 2025 Moko Consulting <hello@mokoconsulting.tech>
+# Copy-PortablePath
 
-This file is part of the Copy-PortablePath project.
+Copy-PortablePath is a PowerShell utility that adds right-click context menu options to copy either the **relative** or **absolute** file/folder path in a portable, forward-slash-friendly format.
 
-Copy-PortablePath is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+## Features
 
-Copy-PortablePath is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+- **Copy Relative Path** — Gets the path relative to the current working directory.
+- **Copy Absolute Path** — Gets the full path of the selected item.
+- Works for files and folders.
+- Supports multiple file selection.
+- Output uses forward slashes for portability across systems.
 
-You should have received a copy of the GNU General Public License
-along with Copy-PortablePath. If not, see <https://www.gnu.org/licenses/>.
+## Requirements
 
-This project’s documentation and scripts were created with assistance from OpenAI’s ChatGPT.
--->
-
-# Copy-PortablePath - README.md
-
-**Copy-PortablePath** is a lightweight Windows utility that adds **“Copy Relative Path”** and **“Copy Absolute Path”** options to the right-click context menu in File Explorer. It is designed for developers, IT professionals, and anyone who needs quick, consistent path copying in a **portable-friendly format** (using `/` instead of `\`).
+- Windows 10/11
+- PowerShell 5.1 or later (PowerShell 7+ supported)
+- Administrator rights required for system-wide installation.
 
 ---
 
-## 📋 Features
+## Installation
 
-* **Two copy modes**:
+### 1. Download the Repository
 
-  * **Copy Relative Path** – Path relative to a defined base directory.
-  * **Copy Absolute Path** – Full file or folder path.
-* **Portable path format** (`/` separators) for cross-platform compatibility.
-* **No external dependencies** — works natively with PowerShell.
-* **Error handling** — detects missing files, registry errors, and permission issues.
-* **Installation check** — ensures context menu entries aren’t duplicated.
-* **One-click installer** — can be run directly from the right-click menu.
+Clone or download this repository to your local system.
 
----
+### 2. Open PowerShell in the Project Folder
 
-## 📦 Prerequisites
-
-* **Windows 11** (tested)
-* **PowerShell 5.1** or **PowerShell 7+**
-* Administrator rights for installation/uninstallation
-* Script execution enabled (`Set-ExecutionPolicy` may need adjustment)
-
----
-
-## 📂 Repository Structure
-
-```
-Copy-PortablePath/
-├── Copy-PortablePath.ps1     # Main script
-├── install.ps1               # Installer
-├── uninstall.ps1             # Uninstaller
-├── README.md                 # This file
-├── CHANGELOG.md              # Version history
-├── CONTRIBUTING.md           # Contribution guidelines
-├── CODE_OF_CONDUCT.md        # Community rules
-└── tests/                    # Test scripts and validation files
-	 ├── Paths.Tests.ps1        # Pester tests for path manipulation functions
-	 ├── Registry.Tests.ps1     # Pester/mock tests for registry-related functions
-	 ├── Install.Tests.ps1      # Tests installer functionality
-	 ├── Uninstall.Tests.ps1    # Tests uninstaller functionality
-	 ├── PathFormat.Tests.ps1   # Validates portable path format output
-	 └── README.md              # Documentation for running tests
+```powershell
+cd "path\\to\\Copy-PortablePath"
 ```
 
----
+### 3. Run the Installer
 
-## 🚀 Installation
-
-### Method 1 – PowerShell
+#### For All Users (requires admin):
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-C:/path/to/install.ps1
+.\install.ps1 -Scope Machine
 ```
 
-### Method 2 – Right-Click
-
-1. Locate `install.ps1` in File Explorer.
-2. Right-click → **Run with PowerShell**.
-
----
-
-## 🔄 Restarting File Explorer or the Computer
-
-After installation or uninstallation, changes will take effect after restarting File Explorer or the system. You can choose any of the following methods:
-
-### Restart File Explorer Only (No Logout or Reboot)
-
-* **Task Manager:** Press `Ctrl + Shift + Esc`, locate **Windows Explorer**, right-click it, and select **Restart**.
-* **Command Line:**
-
-  ```powershell
-  taskkill /f /im explorer.exe
-  start explorer.exe
-  ```
-
-### Restart by Logging Out
-
-* Press `Ctrl + Alt + Del` → **Sign out**, then log back in.
-
-### Restart the Computer
-
-* Click **Start** → **Power** → **Restart**.
-* Or run in PowerShell:
-
-  ```powershell
-  Restart-Computer
-  ```
-
----
-
-## 🖱 Usage
-
-Right-click a file/folder → choose **Copy Relative Path** or **Copy Absolute Path** → paste anywhere.
-
----
-
-## ⚙ Customization
-
-Edit `Copy-PortablePath.ps1`:
-
-* Change `$BasePath` to adjust relative path root
-* Change separator style by modifying:
-
-  ```powershell
-  $PortablePath = $Path -replace '\\','/'
-  ```
-
----
-
-## 🔄 Uninstallation
+#### For Current User Only:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-C:/path/to/uninstall.ps1
+.\install.ps1 -Scope User
 ```
 
-Or right-click → **Run with PowerShell**.
+After installation, right-click any file or folder in File Explorer to see the new options:
 
-Restart Explorer or the system using any method above.
-
----
-
-## 🛠 Troubleshooting
-
-| Issue              | Cause                       | Fix                              |
-| ------------------ | --------------------------- | -------------------------------- |
-| Menu items missing | Registry not applied        | Restart File Explorer            |
-| Clipboard empty    | Clipboard blocked by policy | Copy output manually             |
-| Wrong path format  | Script separator setting    | Update `$PortablePath` in script |
+- **Copy Relative Path**
+- **Copy Absolute Path**
 
 ---
 
-## 📜 License
+## Uninstallation
 
-GPL-3.0-or-later © 2025 Moko Consulting
+### 1. Open PowerShell in the Project Folder
+
+```powershell
+cd "path\\to\\Copy-PortablePath"
+```
+
+### 2. Run the Uninstaller
+
+#### For All Users (requires admin):
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\uninstall.ps1 -Scope Machine
+```
+
+#### For Current User Only:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\uninstall.ps1 -Scope User
+```
+
+Once uninstalled, the context menu options will be removed.
 
 ---
 
-## 👨‍💻 Developer Notes
+## Troubleshooting
 
-* Tested on Windows 11
-* Portable and network-share friendly
-* Documentation and scripts built with ChatGPT assistance
+- If scripts are blocked, ensure execution policy is set to allow running local scripts:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+- Ensure you are running PowerShell **as Administrator** when installing/uninstalling in `Machine` scope.
+- Check the `install.log` file in the project folder for errors.
+
+---
+
+## License
+
+GPL-3.0-or-later. See [LICENSE](LICENSE) for details.
+
+---
+
+**Author:** Jonathan Andrew Miller (Moko Consulting)\
+**Contact:** [hello@mokoconsulting.tech](mailto\:hello@mokoconsulting.tech)
+
