@@ -1,32 +1,6 @@
-<!--
-<<<<<<< Updated upstream
-Copyright (C) 2025 Moko Consulting <hello@mokoconsulting.tech>
+# Copy‑PortablePath
 
-This file is part of the Copy-PortablePath project.
-=======
- COPYRIGHT (C) 2025 Jonathan Miller || Moko Consulting <jmiller@mokoconsulting.tech>
-
- THIS FILE IS PART OF A MOKO CONSULTING PROJECT.
-
- SPDX-LICENSE-IDENTIFIER: GPL-3.0-OR-LATER
-
- THIS PROGRAM IS FREE SOFTWARE: YOU CAN REDISTRIBUTE IT AND/OR MODIFY IT UNDER THE TERMS OF THE GNU GENERAL PUBLIC LICENSE AS PUBLISHED BY THE FREE SOFTWARE FOUNDATION, EITHER VERSION 3 OF THE LICENSE, OR (AT YOUR OPTION) ANY LATER VERSION.
-
- THIS PROGRAM IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. SEE THE GNU GENERAL PUBLIC LICENSE FOR MORE DETAILS.
-
- YOU SHOULD HAVE RECEIVED A COPY OF THE GNU GENERAL PUBLIC LICENSE ALONG WITH THIS PROGRAM. IF NOT, SEE <HTTPS://WWW.GNU.ORG/LICENSES/>.
-
-# FILE INFORMATION
-  INGROUP: 	Copy-PortablePath
-  FILE: 		README.md
-  VERSION: 	1.0
-  Brief: 		README for Copy-PortablePath — a tiny Windows helper that resolves any file or folder to a forward-slash “portable” path, with optional clipboard copy, Explorer right-click integration, a self-contained installer, clean PATH updates, a shim launcher, and per-day history logs.
-  PATH: 		./README.md
--->
-
-# Copy-PortablePath - README.md
-
-*Version 1.0 · GPL-3.0-or-later · Maintainer: Jonathan Miller (Moko Consulting) · Repo: [mokoconsulting-tech/Copy-PortablePath](https://github.com/mokoconsulting-tech/Copy-PortablePath)*
+*Version 1.0 · GPL-3.0-or-later · Maintainer: Jonathan Miller (Moko Consulting) · Repo: *[*mokoconsulting-tech/Copy-PortablePath*](https://github.com/mokoconsulting-tech/Copy-PortablePath)
 
 A tiny Windows helper that resolves any file or folder to a **portable path** (forward slashes) and optionally copies it to the clipboard. Ships with a **self‑contained installer**, an **Explorer right‑click menu** entry, clean **PATH** management, a **shim** (`copy-portablepath`), and per‑day **history logs**.
 
@@ -51,19 +25,9 @@ A tiny Windows helper that resolves any file or folder to a **portable path** (f
 - [Contributing](#contributing)
 - [License](#license)
 - [Changelog](#changelog)
->>>>>>> Stashed changes
 
-Copy-PortablePath is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+## Features
 
-<<<<<<< Updated upstream
-Copy-PortablePath is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-=======
 - **Portable path output**: `C:\Users\me\Docs` → `C:/Users/me/Docs`.
 - **Clipboard switch**: add `-Clip` to copy immediately.
 - **Explorer integration** (HKCU): shows **Copy Portable Path** on files, folders, drives, and folder background (Win11 → *Show more options*).
@@ -76,42 +40,9 @@ GNU General Public License for more details.
 - **Optional code signing** hooks.
 
 ---
->>>>>>> Stashed changes
 
-You should have received a copy of the GNU General Public License
-along with Copy-PortablePath. If not, see <https://www.gnu.org/licenses/>.
--->
+## Requirements
 
-<<<<<<< Updated upstream
-# Copy-PortablePath - README.md
-
-**Copy-PortablePath** is a lightweight Windows enhancement that adds **“Copy Relative Path”** and **“Copy Absolute Path”** options to the right-click (context) menu in File Explorer.
-It is designed for developers, IT staff, and anyone who needs quick, consistent path copying in a **portable-friendly format** (using `/` instead of `\\`).
-
----
-
-## 📋 Features
-
-* **Two copy modes**:
-
-  * **Copy Relative Path** – Path relative to the script’s working directory.
-  * **Copy Absolute Path** – Full absolute path to the file or folder.
-* **Portable path format** (`/` separators) for cross-platform compatibility.
-* **No dependencies** — works out of the box with PowerShell.
-* **Install & uninstall scripts** for quick setup.
-
----
-
-## 📂 Files in this repository
-
-| File                    | Description                                    |
-| ----------------------- | ---------------------------------------------- |
-| `Copy-PortablePath.ps1` | Core PowerShell script for copying paths.      |
-| `install.ps1`           | Registers the context menu entries in Windows. |
-| `uninstall.ps1`         | Removes the context menu entries from Windows. |
-| `README.md`             | This documentation.                            |
-| `CHANGELOG.md`          | Version history and notable changes.           |
-=======
 - Windows 10/11
 - PowerShell 5.1 **or** PowerShell 7+
 
@@ -352,89 +283,11 @@ A JSON manifest is written after every successful install:
   ]
 }
 ```
->>>>>>> Stashed changes
 
 ---
 
-## 🚀 Installation
+## Troubleshooting
 
-<<<<<<< Updated upstream
-1. **Download** this repository or copy the required scripts to a local folder.
-   Example:
-
-   ```
-   J:\\Shared drives\\Knowledgebase\\Scripts\\Copy-PortablePath\\
-   ```
-
-2. **Run the installer script** in PowerShell **as Administrator**:
-
-   ```powershell
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   .\\install.ps1
-   ```
-
-3. **Restart File Explorer** (or log out and back in) to apply the new context menu entries.
-
----
-
-## 🖱 Usage
-
-1. **Right-click** a file or folder in File Explorer.
-2. Select:
-
-   * **Copy Relative Path** – Path relative to the script’s working directory.
-   * **Copy Absolute Path** – Full path with `/` separators.
-3. Paste into your application, code editor, or terminal.
-
----
-
-## ⚙ Customization
-
-* **Relative path base**
-  Edit `$BasePath` in `Copy-PortablePath.ps1` to control how relative paths are calculated.
-
-* **Separator style**
-  Default: `/` for cross-platform use.
-  Change:
-
-  ```powershell
-  $PortablePath = $Path -replace '\\\\','/'
-  ```
-
-  to:
-
-  ```powershell
-  $PortablePath = $Path
-  ```
-
-  to keep Windows `\\`.
-
-* **Default mode bypass**
-  Run the script directly with:
-
-  ```powershell
-  .\\Copy-PortablePath.ps1 -Mode Absolute
-  ```
-
-  or:
-
-  ```powershell
-  .\\Copy-PortablePath.ps1 -Mode Relative
-  ```
-
----
-
-## 🔄 Uninstallation
-
-Run:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\\uninstall.ps1
-```
-
-Or manually delete the registry keys created during installation.
-=======
 - **Icon not visible on Windows 11**: open the classic menu via **Show more options**.
 - **Verb missing on folders**: re‑register (we create both `AllFilesystemObjects` and `Directory` verbs):
   ```powershell
@@ -454,23 +307,11 @@ PRs welcome. Keep the installer idempotent, small, and resilient:
 - Prefer HKCU for shell integration.
 - Use `REG_EXPAND_SZ` for icon resources and quote `%1` / `%V` properly.
 - Don’t re‑add `Copy-PortablePath\\bin`; we’re bin‑less by design.
->>>>>>> Stashed changes
 
 ---
 
-## 🛠 Troubleshooting
+## License
 
-<<<<<<< Updated upstream
-| Issue              | Cause                                       | Fix                                 |
-| ------------------ | ------------------------------------------- | ----------------------------------- |
-| Menu items missing | Registry not applied or File Explorer cache | Restart File Explorer               |
-| Clipboard empty    | `Set-Clipboard` blocked by policy           | Output to console and copy manually |
-| Wrong path format  | Separator logic in script                   | Edit `$PortablePath` assignment     |
-
----
-
-## 📜 License
-=======
 GPL‑3.0‑or‑later. See `LICENSE`.
 
 ---
@@ -478,25 +319,4 @@ GPL‑3.0‑or‑later. See `LICENSE`.
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
->>>>>>> Stashed changes
 
-Copyright (C) 2025 Moko Consulting
-Licensed under the GNU General Public License v3.0 or later (GPL-3.0-or-later).
-You may redistribute and/or modify this software under the terms of the GPL as published by the Free Software Foundation.
-
----
-
-## 👨‍💻 Developer Notes
-
-* Tested on Windows 11.
-* Works with PowerShell 5.1 and 7+.
-* Registry entries stored under `HKEY_CLASSES_ROOT`.
-* Can be run from USB or network share for portability.
-
----
-
-## 📦 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a detailed version history.
-
----
