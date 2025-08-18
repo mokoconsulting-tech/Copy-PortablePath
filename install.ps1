@@ -397,4 +397,7 @@ function cpp {
   if ($LogPath) { Write-Host "Log written: $LogPath" -ForegroundColor DarkGreen }
 }
 #endregion
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

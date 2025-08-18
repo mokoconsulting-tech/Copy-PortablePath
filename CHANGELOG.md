@@ -57,4 +57,7 @@ All notable changes to this project will be documented here. This file follows a
 * Legacy `Copy-PortablePath\bin` directory cleanup and PATH removal.
 
 ---
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
