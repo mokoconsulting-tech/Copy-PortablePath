@@ -11,14 +11,12 @@
 
  YOU SHOULD HAVE RECEIVED A COPY OF THE GNU GENERAL PUBLIC LICENSE ALONG WITH THIS PROGRAM. IF NOT, SEE <HTTPS://WWW.GNU.ORG/LICENSES/>.
 
- # FILE INFORMATION
+# FILE INFORMATION
  INGROUP: 	Copy-PortablePath
  FILE: 			CODE_OF_CONDUCT.md
  VERSION:		1.0
  BRIEF: 		Code of conduct for contributors and maintainers.
-
  PATH: 	CODE_OF_CONDUCT.md
- 
  NOTE:  Keep the reporting contact information current and monitored.  
 -->
 
